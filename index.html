@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="load-block">
+        <div class="loader"></div>
+        <div class="preloader">
+			<div class="loader07"></div>
+            </div>
+          </div>
+        </div>
+    <header>
+        <img src="/logo.svg">
+        <p class="bank">Банк</p>
+        <p>Бизнес</p>
+        <p>Инвестиции</p>
+        <p>Страхование</p>
+        <p>Мобайл</p>
+        <p>Путешествия</p>
+        <p>Развлечения</p>
+        <div class="enter">
+            ВОЙТИ
+        </div>
+    </header>
+    <div class="wrapper">
+        <h1>
+            Конвертер валют онлайн
+        </h1>
+        <div class="main">
+            <div>
+                <p>
+                    У меня есть 
+                </p>
+                <div class="curChoose" id="choose">
+                    <div class="currency">RUB</div>
+                    <div class="currency">USD</div>
+                    <div class="currency">EUR</div>
+                    <div class="currency">GBP</div>
+                    <select class="curSelect">
+
+                    </select>
+                </div>
+                <div class="moneyWrap">
+                    <input type="number" class="money" id="baseMoney" value="1">
+                    <p class="changeRate" id="baseRate">1 RUB = 0.0135 USD</p>
+                </div>
+            </div>
+            <img src="/pointers.svg" style="margin: 45px;">
+            <div>
+                <p>
+                    Хочу приобрести
+                </p>
+                <div class="curChoose" id="change">
+                    <div class="currency">RUB</div>
+                    <div class="currency">USD</div>
+                    <div class="currency">EUR</div>
+                    <div class="currency">GBP</div>
+                    <select class="curSelect">
+
+                    </select>
+                </div>
+                <div class="moneyWrap">
+                    <input type="number" class="money" id="newMoney">
+                    <p class="changeRate" id="newRate">1 RUB = 0.0135 USD</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/main.js"></script>
+</body>
+</html>
