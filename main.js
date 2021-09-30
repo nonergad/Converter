@@ -1,19 +1,21 @@
 let memory = 0;
 let changeCur = 'USD';
 let text = ''
-    setTimeout(function(){ 
-        async function start(){
-        document.querySelector('.load-block').style.display = 'flex'
-        const res = await fetch(`https://api.exchangerate.host/latest?base=RUB`);
-        document.querySelector('.load-block').style.display = 'none'
-        const data = await res.json();
-        memory = data.rates
-        rate.innerText = `1 RUB = ${memory[changeCur]} ${changeCur}`;
-        rateChange.innerText = `1 ${changeCur} = ${1/memory[changeCur]} RUB`;
-        document.querySelector('#newMoney').value = 1*memory[changeCur];
-    }
-    start()
-    }, 50);
+const arrows = document.querySelector('#arrows')
+arrows.addEventListener('click',arroSwitch);
+//     setTimeout(function(){ 
+//         async function start(){
+//         document.querySelector('.load-block').style.display = 'flex'
+//         const res = await fetch(`https://api.exchangerate.host/latest?base=RUB`);
+//         document.querySelector('.load-block').style.display = 'none'
+//         const data = await res.json();
+//         memory = data.rates
+//         rate.innerText = `1 RUB = ${memory[changeCur]} ${changeCur}`;
+//         rateChange.innerText = `1 ${changeCur} = ${1/memory[changeCur]} RUB`;
+//         document.querySelector('#newMoney').value = 1*memory[changeCur];
+//     }
+//     start()
+//     }, 50);
 const rate = document.querySelector('#baseRate');
 const rateChange = document.querySelector('#newRate');
 const baseInput = document.querySelector('#baseMoney')
@@ -65,6 +67,7 @@ async function getRates(event) {
             }
             event.currentTarget.style.backgroundColor = '#833AE0'
             event.currentTarget.style.color = 'white';
+            
         })
     } else {
         allButtons.forEach(element => {
@@ -140,4 +143,23 @@ function calcCur(event) {
             baseMoney.value = newMoney.value/memory[changeCur]
         }
     }
+}
+
+function arroSwitch() {
+    let buttonMemory = []
+    allButtons.forEach(element => {
+        if (element.style.backgroundColor === 'rgb(131, 58, 224)') {
+            buttonMemory.push(element.innerText);
+        }
+    });
+    allButtons.forEach(element => {
+        if (element.parentElement !== document.querySelector('#choose') && element.innerText == buttonMemory[0]){
+            element.click();
+        } else if (element.parentElement == document.querySelector('#choose') && element.innerText == buttonMemory[1]){
+            element.click();
+        }
+    });
+    // buttonMemory.forEach(element => {
+    //     element.click();
+    // });
 }
